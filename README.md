@@ -1,94 +1,68 @@
-# 🌾 SiKepang - Sistem Informasi Ketahanan Pangan Kota Ternate
+# CodeIgniter 4 Application Starter
 
-![SiKepang Banner](path/to/your/screenshot.png) **SiKepang** adalah platform digital yang dirancang untuk membantu Dinas Ketahanan Pangan dan masyarakat Kota Ternate dalam memantau ketersediaan (stok), stabilitas harga, dan distribusi bahan pokok. Aplikasi ini menyajikan data secara transparan, *real-time*, dan berbasis lokasi (GIS).
+## What is CodeIgniter?
 
-## 🚀 Fitur Utama
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+More information can be found at the [official site](https://codeigniter.com).
 
-### 1. 📊 Dashboard Monitoring Eksekutif
-- Visualisasi tren ketersediaan stok pangan selama satu tahun (Januari - Desember) menggunakan **Chart.js**.
-- Indikator visual untuk stok melimpah atau menipis.
-- Ringkasan data komoditas utama (Beras, Cabai, Daging, dll).
+This repository holds a composer-installable app starter.
+It has been built from the
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-### 2. 🗺️ Peta Sebaran Mitra (GIS)
-- Integrasi **Mapbox GL JS** untuk memetakan lokasi pasar, distributor, dan mitra pangan.
-- **Interactive Popup:** Menampilkan detail toko, alamat, kontak WhatsApp, dan kategori usaha.
-- **Direct Routing:** Fitur navigasi langsung ke lokasi mitra via Google Maps.
+More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
 
-### 3. 📝 Manajemen Data Pangan
-- Pencatatan data stok masuk dan keluar per komoditas.
-- Filter data berdasarkan kategori dinas dan waktu.
-- Dukungan data presisi tinggi (Tonase dengan desimal).
+You can read the [user guide](https://codeigniter.com/user_guide/)
+corresponding to the latest version of the framework.
 
-### 4. 📄 Laporan & Ekspor
-- Cetak laporan ketersediaan pangan otomatis ke format **PDF**.
-- Laporan siap cetak untuk kebutuhan administrasi dinas.
+## Installation & updates
 
----
+`composer create-project codeigniter4/appstarter` then `composer update` whenever
+there is a new release of the framework.
 
-## 🛠️ Teknologi yang Digunakan
+When updating, check the release notes to see if there are any changes you might need to apply
+to your `app` folder. The affected files can be copied or merged from
+`vendor/codeigniter4/framework/app`.
 
-Project ini dibangun dengan *Tech Stack* modern dan efisien:
+## Setup
 
-* **Backend Framework:** [CodeIgniter 4](https://codeigniter.com/) (PHP)
-* **Database:** MySQL / MariaDB
-* **Frontend:** HTML5, CSS3, [Bootstrap 5](https://getbootstrap.com/)
-* **Visualization:** [Chart.js](https://www.chartjs.org/) (Grafik Statistik)
-* **Mapping API:** [Mapbox GL JS](https://www.mapbox.com/)
-* **PDF Generator:** DomPDF
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
 
----
+## Important Change with index.php
 
-## 💻 Instalasi & Menjalankan Project
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-Ikuti langkah-langkah berikut untuk menjalankan project di komputer lokal (Localhost):
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-### Prasyarat
-- PHP >= 7.4 (Disarankan PHP 8.1+)
-- Composer
-- Web Server (XAMPP/Laragon) atau built-in spark
+**Please** read the user guide for a better explanation of how CI4 works!
 
-### Langkah Instalasi
+## Repository Management
 
-1.  **Clone Repositori**
-    ```bash
-    git clone [https://github.com/username-anda/sikepang.git](https://github.com/username-anda/sikepang.git)
-    cd sikepang
-    ```
+We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
-2.  **Install Dependencies**
-    ```bash
-    composer install
-    ```
+This repository is a "distribution" one, built by our release preparation script.
+Problems with it can be raised on our forum, or as issues in the main repository.
 
-3.  **Konfigurasi Database**
-    - Buat database baru di phpMyAdmin bernama `sikepang_db`.
-    - Ubah file `env` menjadi `.env`, lalu atur konfigurasi database:
-      ```ini
-      database.default.hostname = localhost
-      database.default.database = sikepang_db
-      database.default.username = root
-      database.default.password =
-      database.default.DBDriver = MySQLi
-      ```
+## Server Requirements
 
-4.  **Migrasi & Seeding Data**
-    Jalankan perintah berikut untuk membuat tabel dan mengisi data dummy/awal (termasuk data stok 2025):
-    ```bash
-    php spark migrate
-    php spark db:seed DataStok2025
-    ```
+PHP version 8.1 or higher is required, with the following extensions installed:
 
-5.  **Jalankan Server**
-    ```bash
-    php spark serve
-    ```
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
 
-6.  **Akses Aplikasi**
-    Buka browser dan kunjungi: `http://localhost:8080`
+> [!WARNING]
+> - The end of life date for PHP 7.4 was November 28, 2022.
+> - The end of life date for PHP 8.0 was November 26, 2023.
+> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
+> - The end of life date for PHP 8.1 will be December 31, 2025.
 
----
+Additionally, make sure that the following extensions are enabled in your PHP:
 
-
-## 🤝 Kontribusi & Kredit
-
-Please ⭐ this repository if you find it useful!
+- json (enabled by default - don't turn it off)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
