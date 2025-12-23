@@ -88,21 +88,7 @@ Ikuti langkah-langkah berikut untuk menjalankan project di komputer lokal (Local
 
 ---
 
-## 📸 Screenshots
-
-| Dashboard Monitoring | Peta Sebaran |
-| :---: | :---: |
-| ![Dashboard](link_gambar_dashboard) | ![Peta](link_gambar_peta) |
-
-*(Ganti teks ini dengan screenshot aplikasi Anda agar lebih menarik)*
-
----
 
 ## 🤝 Kontribusi & Kredit
-
-Dikembangkan oleh **[Nama Anda]** sebagai bagian dari [Tugas Akhir/Project Kuliah/Portofolio].
-Data bersumber dari **Dinas Ketahanan Pangan Kota Ternate** (Simulasi/Data Real).
-
----
 
 Please ⭐ this repository if you find it useful!
